@@ -1,0 +1,26 @@
+body {
+    background-color: #f0f2f5;
+}
+
+.card {
+    border-radius: 1rem;
+    padding: 2rem;
+}
+
+h2 {
+    font-weight: 600;
+}
+
+.btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+}
+
+.text-danger {
+    font-size: 0.9rem;
+}
