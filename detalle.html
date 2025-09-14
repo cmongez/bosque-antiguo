@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detalle de producto</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <style>
+        body {
+            background: #f7f7f7;
+        }
+
+        .gallery-main {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            background: #fff;
+            border: 1px solid #e5e5e5;
+            border-radius: .5rem;
+            object-fit: cover;
+        }
+
+        .thumb {
+            width: 70px;
+            height: 70px;
+            object-fit: cover;
+            border: 1px solid #ddd;
+            border-radius: .25rem;
+            cursor: pointer;
+            background: #fff;
+        }
+
+        .thumb.active {
+            outline: 3px solid #0d6efd;
+        }
+
+        .price {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #198754;
+        }
+
+        .qty-input {
+            max-width: 110px;
+        }
+
+        .related img {
+            height: 160px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR (simple) -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/index.html"><i class="fa-solid fa-leaf me-2"></i>Vivero</a>
+            <div class="ms-auto">
+                <a class="text-white text-decoration-none" href="#"><i class="fa-solid fa-cart-shopping me-2"></i>Cart
+                    (<span id="cartCount">0</span>)</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container py-4">
+
+        <!-- Breadcrumb -->
+        <nav aria-label="breadcrumb" class="mb-3">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/index.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="/productos.html">Productos</a></li>
+                <li class="breadcrumb-item"><a href="#">Categoría X</a></li>
+                <li class="breadcrumb-item active" aria-current="page" id="crumbTitle">Producto</li>
+            </ol>
+        </nav>
+
+        <div class="row g-4">
+            <!-- Galería -->
+            <div class="col-lg-7">
+                <img id="mainImg" class="gallery-main" src="/img/jardineria1.jpg" alt="Producto" />
+
+                <div class="d-flex gap-2 mt-3 flex-wrap">
+                    <!-- Thumbnails dinámicos -->
+                    <img class="thumb active" src="/img/jardineria1.jpg" data-src="/img/jardineria1.jpg"
+                        alt="thumb 1" />
+                    <img class="thumb" src="/img/jardineria.jpg" data-src="/img/jardineria.jpg" alt="thumb 2" />
+                    <img class="thumb" src="/img/close-up-manos-sosteniendo-plantas-de-interior.jpg"
+                        data-src="/img/close-up-manos-sosteniendo-plantas-de-interior.jpg" alt="thumb 3" />
+                </div>
+            </div>
+
+            <!-- Info producto -->
+            <div class="col-lg-5">
+                <div class="d-flex justify-content-between align-items-start">
+                    <h1 class="h3" id="productName">Nombre Producto</h1>
+                    <div class="price" id="productPrice">$0</div>
+                </div>
+
+                <p class="text-muted" id="productDesc">
+                    Descripción breve del producto. Puedes destacar cuidados, usos y beneficios.
+                </p>
+
+                <div class="my-3">
+                    <label class="form-label d-block">Cantidad</label>
+                    <div class="input-group qty-input">
+                        <button class="btn btn-outline-secondary" id="btnMinus" type="button">-</button>
+                        <input id="qty" type="number" class="form-control text-center" value="1" min="1" step="1" />
+                        <button class="btn btn-outline-secondary" id="btnPlus" type="button">+</button>
+                    </div>
+                </div>
+
+                <button id="btnAdd" class="btn btn-primary btn-lg w-100 mt-3">
+                    Añadir al carrito
+                </button>
+
+                <hr class="my-4" />
+
+                <div class="small text-muted">
+                    <p class="mb-1"><strong>Origen:</strong> <span id="origin">Local</span></p>
+                    <p class="mb-1"><strong>SKU:</strong> <span id="sku">PI001</span></p>
+                    <p class="mb-0"><strong>Categoría:</strong> <span id="category">Plantas de Interior</span></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Relacionados -->
+        <hr class="my-5" />
+        <h4 class="mb-3">Productos relacionados</h4>
+        <div id="related" class="row g-3 related">
+            <!-- Cards relacionadas (dinámico) -->
+        </div>
+    </div>
+
+    <footer class="bg-dark text-white text-center py-4 mt-5">
+        <p class="mb-0">&copy; 2025 Vivero Bosque Antiguo</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // ------- Datos de demo (modifica libremente) -------
+        const product = {
+            nombre: "Monstera deliciosa",
+            precio: 18990,
+            descripcion:
+                "Planta tropical ideal para interior, hojas grandes y brillantes. Prefiere luz indirecta brillante y riego moderado.",
+            sku: "PI005",
+            categoria: "Plantas de Interior",
+            origen: "Limache, Valparaíso",
+            imagenes: [
+                "/img/jardineria1.jpg",
+                "/img/jardineria.jpg",
+                "/img/close-up-manos-sosteniendo-plantas-de-interior.jpg",
+            ],
+        };
+
+        const relatedProducts = [
+            { nombre: "Ficus", img: "/img/jardineria1.jpg", precio: 14990 },
+            { nombre: "Sansevieria", img: "/img/jardineria.jpg", precio: 9990 },
+            { nombre: "Afelandra", img: "/img/close-up-manos-sosteniendo-plantas-de-interior.jpg", precio: 12990 },
+            { nombre: "Begonias", img: "/img/jardineria1.jpg", precio: 7990 },
+        ];
+
+        // ------- Render principal -------
+        const fmt = n => n.toLocaleString("es-CL", { style: "currency", currency: "CLP", maximumFractionDigits: 0 });
+
+        document.getElementById("productName").textContent = product.nombre;
+        document.getElementById("productPrice").textContent = fmt(product.precio);
+        document.getElementById("productDesc").textContent = product.descripcion;
+        document.getElementById("sku").textContent = product.sku;
+        document.getElementById("category").textContent = product.categoria;
+        document.getElementById("origin").textContent = product.origen;
+        document.getElementById("crumbTitle").textContent = product.nombre;
+
+        // Galería
+        const mainImg = document.getElementById("mainImg");
+        mainImg.src = product.imagenes[0];
+
+        const thumbs = document.querySelectorAll(".thumb");
+        thumbs.forEach((t, i) => {
+            if (product.imagenes[i]) {
+                t.src = product.imagenes[i];
+                t.dataset.src = product.imagenes[i];
+            }
+            t.addEventListener("click", () => {
+                thumbs.forEach(x => x.classList.remove("active"));
+                t.classList.add("active");
+                mainImg.src = t.dataset.src;
+            });
+        });
+
+        // Cantidad
+        const qty = document.getElementById("qty");
+        document.getElementById("btnMinus").onclick = () => qty.value = Math.max(1, parseInt(qty.value || 1) - 1);
+        document.getElementById("btnPlus").onclick = () => qty.value = Math.max(1, parseInt(qty.value || 1) + 1);
+
+        // Carrito (localStorage solo contador)
+        const cartCountEl = document.getElementById("cartCount");
+        const getCart = () => Number(localStorage.getItem("cartCount") || 0);
+        const setCart = n => { localStorage.setItem("cartCount", n); cartCountEl.textContent = n; };
+        setCart(getCart());
+        document.getElementById("btnAdd").onclick = () => setCart(getCart() + Number(qty.value || 1));
+
+        // Relacionados
+        const related = document.getElementById("related");
+        related.innerHTML = relatedProducts.map(r => `
+      <div class="col-6 col-md-3">
+        <a class="text-decoration-none text-reset" href="detalle.html">
+          <div class="card h-100">
+            <img src="${r.img}" class="card-img-top" alt="${r.nombre}">
+            <div class="card-body">
+              <div class="fw-semibold">${r.nombre}</div>
+              <div class="text-success">${fmt(r.precio)}</div>
+            </div>
+          </div>
+        </a>
+      </div>
+    `).join("");
+    </script>
+</body>
+
+</html>
