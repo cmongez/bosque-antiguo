@@ -1,25 +1,37 @@
-:root {
-    --bg: #f8f9fa;
-    --primary: #19645c;
-    --text: #333;
-    --radius: margin-top;
+:root { /* define variables globales */
+  --bg: #F7F7F7; /* guardan colores que usaremos en todo el proyecto */
+  --primary:#2E8B57;/*guardan colores que usaremos en todo el proyecto */
+  --amarillo-mostaza:#FFD700;
+  --titulos-subtitulos:#8B4513;
+  --text: #333; /* guardan colores que usaremos en todo el proyecto */
+  --radius: 10px; 
+}
+
+@font-face {
+  font-family:'Montserrat';
+  src: url(/fonts/Montserrat-VariableFont_wght.ttf);
+}
+
+*{
+  font-family: 'Montserrat';
 }
 
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    background: var(--bg);
-    color: var(--text);
+  
+  margin: 0;
+  background: var(--bg); /* Define el color del texto principal en todo el documento */
+  color: var(--text);/* Usa la variable --text definida en :root */
 }
 
-.container {
-    width: min(90%, 1100px);
-    margin: auto;
+
+.container { /* centra y limita el ancho del contenido de la página */
+  width: min(90%, 1100px);/* ancho del contenedor */
+  margin: auto;
 }
 
 .site-header {
-    background: var(--primary);
-    padding: 10px 0;
+  background: var(--primary);
+  padding: 10px 0;/* Aplica espaciado interno (entre el borde del header y su contenido) */
 }
 
 .nav {
@@ -77,14 +89,6 @@ body {
     width: 200%;
 }
 
-img {
-    max-width: 100%;
-    /* nunca será más ancha que su contenedor */
-    height: auto;
-    /* mantiene proporción */
-    display: block;
-    /* elimina espacio raro debajo */
-}
 
 .hero {
     text-align: center;
@@ -101,11 +105,11 @@ img {
 }
 
 .card {
-    background: white;
-    border-radius: 10px;
-    padding: 15px;
-    text-align: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background: white;
+  border-radius: 10px;  /*cambiar a border-radius: var(--radius); */
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .card img {
