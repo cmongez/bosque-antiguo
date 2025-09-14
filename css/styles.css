@@ -1,0 +1,150 @@
+:root {
+    --bg: #f8f9fa;
+    --primary: #19645c;
+    --text: #333;
+    --radius: margin-top;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+}
+
+.container {
+    width: min(90%, 1100px);
+    margin: auto;
+}
+
+.site-header {
+    background: var(--primary);
+    padding: 10px 0;
+}
+
+.nav {
+    display: flex;
+    /* activa flexbox */
+    justify-content: space-between;
+    /* logo izquierda, menú derecha */
+    align-items: center;
+    /* centra verticalmente */
+    padding: 20px 20px;
+}
+
+.logo {
+    color: white;
+    font-weight: bold;
+}
+
+.logo img {
+    height: 80px;
+    /* altura fija del logo */
+    width: auto;
+    /* mantiene proporción */
+    display: block;
+    /* evita que el logo se "baje" */
+}
+
+.menu {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu a {
+    position: relative;
+    color: white;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: background 0.3s;
+}
+
+.menu a :hover {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: white;
+    transition: width 0.3s;
+}
+
+.menu a:hover::after {
+    width: 200%;
+}
+
+img {
+    max-width: 100%;
+    /* nunca será más ancha que su contenedor */
+    height: auto;
+    /* mantiene proporción */
+    display: block;
+    /* elimina espacio raro debajo */
+}
+
+.hero {
+    text-align: center;
+    padding: 40px 0;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* 3 columnas fijas */
+    gap: 20px;
+    /* espacio entre tarjetas */
+    margin-top: 20px;
+}
+
+.card {
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.card img {
+    width: 100%;
+    max-width: 200%;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+}
+
+.btn {
+    display: inline-block;
+    background: var(--primary);
+    color: white;
+    padding: 10px 15px;
+    border-radius: var(--radius);
+    text-decoration: none;
+}
+
+.site-footer {
+    background: #222222;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 30px;
+}
+
+.social-icons {
+    margin-top: 10px;
+}
+
+.social-icons a i {
+    color: #fff;
+    margin: 0 10px;
+    font-size: 24px;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #00c853;
+    /* cambia a verde (puedes usar otro color) */
+}
