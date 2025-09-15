@@ -4,148 +4,185 @@
 <head>
     <meta charset="UTF-8">
     <title>Carrito</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 
-<body class="bg-light">
+<body class=" bg-light">
+    <!-- NAVBAR -->
+    <!--una navbar verde, con textos blancos, que en pantallas pequeñas se transforma en menú colapsable-->
+    <!-- NAVBAR -->
+    <!--una navbar verde, con textos blancos, que en pantallas pequeñas se transforma en menú colapsable-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success px-4">
+        <div class="container-fluid">
+            <a class="navbar-brand logo" href="/index.html">
+                <img src="/img/logo ba.png" alt="Logo" />
+            </a>
 
-    <body>
-        <!-- NAVBAR -->
-        <!--una navbar verde, con textos blancos, que en pantallas pequeñas se transforma en menú colapsable-->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-success">
-            <div class="container">
-                <a class="navbar-brand" href="#">
-                    <img src="/img/logo ba.png" alt="Logo" height="50" />
-                </a>
+            <!--Es el icono de menú hamburguesa (3 rayitas)-->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
+                aria-controls="menu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-                <!--Es el icono de menú hamburguesa (3 rayitas)-->
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
-                    aria-controls="menu" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+            <div class="collapse navbar-collapse" id="menu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/index.html">Inicio</a>
+                        <!--active indica el enlace actual-->
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Productos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/registro.html">Registrarse</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link  active" href="/login.html">Iniciar Sesión</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contacto.html">Contacto</a>
+                    </li>
+                </ul>
+            </div>
 
-                <div class="collapse navbar-collapse" id="menu">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link active"  href="/index.html">Inicio</a>
-                            <!--active indica el enlace actual-->
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="#">Productos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/registro.html">Registro</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/contacto.html">Contacto</a>
-                        </li>
-                    </ul>
-                </div>
+            <!-- ICONOS DE BUSQUEDA,CARRITO,USUARIO -->
 
-                <!-- ICONOS DE BUSQUEDA,CARRITO,USUARIO -->
-
-                <div class="navbar align-self-center d-flex">
-                    <div class="d-lg-none flex-sm-fill mt-3 mb-4 col-7 col-sm-auto pr-3">
-                        <!--el input de búsqueda solo se muestra en pantallas pequeñas (se oculta en pantallas grandes)-->
-                        <div class="input-group">
-                            <input type="text" class="form-control me-2" id="inputMobileSearch"
-                                placeholder="Buscar..." />
-                            <div class="input-group-text">
-                                <i class="fa fa-fw fa-search"></i>
-                            </div>
+            <div class="navbar align-self-center d-flex">
+                <div class="d-lg-none flex-sm-fill mt-3 mb-4 col-7 col-sm-auto pr-3">
+                    <!--el input de búsqueda solo se muestra en pantallas pequeñas (se oculta en pantallas grandes)-->
+                    <div class="input-group">
+                        <input type="text" class="form-control me-2" id="inputMobileSearch" placeholder="Buscar..." />
+                        <div class="input-group-text">
+                            <i class="fa fa-fw fa-search"></i>
                         </div>
                     </div>
-                    <a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal"
-                        data-bs-target="#templatemo_search">
-                        <i class="fa fa-fw fa-search text-dark mr-2"></i>
-                    </a>
-                    <a class="mx-4 nav-icon position-relative text-decoration-none" href="#">
-                        <i class="fa fa-fw fa-cart-arrow-down text-white mr-1"></i>
-                        <span
-                            class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">2</span>
-                    </a>
-                    <a class="nav-icon position-relative text-decoration-none" href="#">
-                        <i class="fa fa-fw fa-user text-white mr-3"></i>
-                        <span
-                            class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">+99</span>
-                    </a>
                 </div>
-            </div>
-        </nav>
-        <div class="container py-4">
-            <h1 class="text-center mb-4">Carrito de compras</h1>
-
-            <ul id="lista-carrito" class="list-group mb-3"></ul>
-            <h5>Total: $<span id="total">0</span></h5>
-
-            <div class="mt-3">
-                <button class="btn btn-danger" onclick="vaciarCarrito()">Vaciar carrito</button>
-                <a href="productos.html" class="btn btn-secondary">Seguir comprando</a>
+                <a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal"
+                    data-bs-target="#templatemo_search">
+                    <i class="fa fa-fw fa-search text-dark mr-2"></i>
+                </a>
+                <a class="mx-4 nav-icon position-relative text-decoration-none" href="/carrito.html">
+                    <i class="fa fa-fw fa-cart-arrow-down text-white mr-1"></i>
+                    <span id="cartCount"
+                        class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-light text-dark">0</span>
+                </a>
+                <a class="nav-icon position-relative text-decoration-none" href="registro.html">
+                    <i class="fa fa-fw fa-user text-white mr-3"></i>
+                    <span
+                        class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">+99</span>
+                </a>
             </div>
         </div>
+    </nav>
 
-        <!-- FOOTER -->
-        <footer class="bg-dark text-white text-center py-4">
-            <p class="mb-2">&copy; 2025 Tu Tienda. Todos los derechos reservados.</p>
-            <div class="d-flex justify-content-center gap-3">
-                <a href="https://facebook.com" target="_blank" class="text-white fs-4"><i
-                        class="fab fa-facebook"></i></a>
-                <a href="https://instagram.com" target="_blank" class="text-white fs-4"><i
-                        class="fab fa-instagram"></i></a>
-                <a href="https://twitter.com" target="_blank" class="text-white fs-4"><i class="fab fa-twitter"></i></a>
-                <a href="https://wa.me/56912345678" target="_blank" class="text-white fs-4"><i
-                        class="fab fa-whatsapp"></i></a>
+    <main class="container py-4">
+        <h1 class="mb-4">Mi carrito de compras</h1>
+        <div class="row">
+            <!-- Lista de productos -->
+            <div class="col-md-8" id="lista-carrito"></div>
+
+            <!-- Resumen -->
+            <div class="col-md-4">
+                <div class="card p-3">
+                    <h5 class="d-flex justify-content-between">
+                        <span>TOTAL:</span>
+                        <span id="total">$0</span>
+                    </h5>
+                    <div class="mb-3">
+                        <input type="text" class="form-control" placeholder="Ingrese el cupón de descuento">
+                        <button class="btn btn-outline-secondary w-100 mt-2">Aplicar</button>
+                    </div>
+                    <button class="btn btn-success w-100 btn-lg">PAGAR</button>
+                </div>
             </div>
-        </footer>
+        </div>
+    </main>
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <p class="mb-2">&copy; 2025 Tu Tienda. Todos los derechos reservados.</p>
+        <div class="social-icons d-flex justify-content-center gap-3">
+            <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://wa.me/56912345678" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        </div>
+    </footer>
+    <script>
+        const formatoPesos = n => n.toLocaleString("es-CL", { style: "currency", currency: "CLP", maximumFractionDigits: 0 });
 
+        function obtenerCarrito() {
+            return JSON.parse(localStorage.getItem("carrito")) || [];
+        }
+        function guardarCarrito(carrito) {
+            localStorage.setItem("carrito", JSON.stringify(carrito));
+        }
 
+        function mostrarCarrito() {
+            let carrito = obtenerCarrito();
+            let lista = document.getElementById("lista-carrito");
+            let totalElemento = document.getElementById("total");
+            let total = 0;
+            lista.innerHTML = "";
 
-        <script>
-            function mostrarCarrito() {
-                let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-                let lista = document.getElementById("lista-carrito");
-                let totalElemento = document.getElementById("total");
-                let total = 0;
-
-                lista.innerHTML = "";
-
-                carrito.forEach(item => {
-                    let li = document.createElement("li");
-                    li.className = "list-group-item d-flex justify-content-between align-items-center";
-                    li.innerHTML = `
-            ${item.nombre} x${item.cantidad}
-          <span class="badge bg-primary rounded-pill">$${item.precio * item.cantidad}</span>
+            carrito.forEach(item => {
+                let subtotal = item.precio * item.cantidad;
+                let div = document.createElement("div");
+                div.className = "card mb-3";
+                div.innerHTML = `
+          <div class="row g-3 align-items-center p-2">
+            <div class="col-3">
+              <img src="${item.img || '/img/jardineria1.jpg'}" class="img-fluid rounded">
+            </div>
+            <div class="col-5">
+              <h6>${item.nombre}</h6>
+              <small class="text-muted">SKU: ${item.codigo}</small>
+            </div>
+            <div class="col-2 text-end">
+              <strong>${formatoPesos(item.precio)}</strong>
+            </div>
+            <div class="col-2 text-center">
+              <div class="d-flex align-items-center justify-content-center gap-1">
+                <button class="btn btn-sm btn-outline-secondary">-</button>
+                <span>${item.cantidad}</span>
+                <button class="btn btn-sm btn-outline-secondary">+</button>
+              </div>
+              <button class="btn btn-sm btn-danger mt-2">X</button>
+            </div>
+          </div>
         `;
 
-                    // Botón eliminar
-                    let btnEliminar = document.createElement("button");
-                    btnEliminar.className = "btn btn-sm btn-outline-danger ms-2";
-                    btnEliminar.textContent = "X";
-                    btnEliminar.onclick = () => eliminarProducto(item.nombre);
+                // Botones
+                let botones = div.querySelectorAll("button");
+                botones[0].onclick = () => {
+                    if (item.cantidad > 1) { item.cantidad--; guardarCarrito(carrito); mostrarCarrito(); }
+                };
+                botones[1].onclick = () => {
+                    item.cantidad++; guardarCarrito(carrito); mostrarCarrito();
+                };
+                botones[2].onclick = () => {
+                    eliminarProducto(item.codigo);
+                };
 
-                    li.appendChild(btnEliminar);
-                    lista.appendChild(li);
+                lista.appendChild(div);
+                total += subtotal;
+            });
 
-                    total += item.precio * item.cantidad;
-                });
+            totalElemento.textContent = formatoPesos(total);
+            guardarCarrito(carrito);
+        }
 
-                totalElemento.textContent = total;
-            }
-
-            function eliminarProducto(nombre) {
-                let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-                carrito = carrito.filter(item => item.nombre !== nombre);
-                localStorage.setItem("carrito", JSON.stringify(carrito));
-                mostrarCarrito();
-            }
-
-            function vaciarCarrito() {
-                localStorage.removeItem("carrito");
-                mostrarCarrito();
-            }
-
+        function eliminarProducto(codigo) {
+            let carrito = obtenerCarrito();
+            carrito = carrito.filter(item => item.codigo !== codigo);
+            guardarCarrito(carrito);
             mostrarCarrito();
-        </script>
-    </body>
+        }
+
+        mostrarCarrito();
+    </script>
+</body>
 
 </html>
