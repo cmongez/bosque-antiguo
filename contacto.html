@@ -18,11 +18,13 @@
   </head>
   <body>
     <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
-      <div class="container">
-        <a class="navbar-brand" href="#">
-          <img src="/img/logo ba.png" alt="Logo" height="50" />
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success px-4">
+      <div class="container-fluid">
+        <a class="navbar-brand logo" href="#">
+          <img src="/img/logo ba.png" alt="Logo"/>
         </a>
+
+        <!--Es el icono de menú hamburguesa (3 rayitas)-->
         <button
           class="navbar-toggler"
           type="button"
@@ -34,13 +36,15 @@
         >
           <span class="navbar-toggler-icon"></span>
         </button>
+
         <div class="collapse navbar-collapse" id="menu">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
               <a class="nav-link active" href="/index.html">Inicio</a>
+              <!--active indica el enlace actual-->
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="#">Productos</a>
+              <a class="nav-link" href="#">Productos</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/registro.html">Registro</a>
@@ -51,10 +55,11 @@
           </ul>
         </div>
 
-        <!-- ICONO DE BUSQUEDA -->
+        <!-- ICONOS DE BUSQUEDA,CARRITO,USUARIO -->
 
         <div class="navbar align-self-center d-flex">
           <div class="d-lg-none flex-sm-fill mt-3 mb-4 col-7 col-sm-auto pr-3">
+            <!--el input de búsqueda solo se muestra en pantallas pequeñas (se oculta en pantallas grandes)-->
             <div class="input-group">
               <input
                 type="text"
@@ -77,7 +82,7 @@
           </a>
           <a
             class="mx-4 nav-icon position-relative text-decoration-none"
-            href="#"
+            href="carrito.html"
           >
             <i class="fa fa-fw fa-cart-arrow-down text-white mr-1"></i>
             <span
@@ -85,7 +90,7 @@
               >2</span
             >
           </a>
-          <a class="nav-icon position-relative text-decoration-none" href="#">
+          <a class="nav-icon position-relative text-decoration-none" href="registro.html">
             <i class="fa fa-fw fa-user text-white mr-3"></i>
             <span
               class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"
