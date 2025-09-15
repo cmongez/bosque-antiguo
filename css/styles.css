@@ -21,6 +21,23 @@
   margin: 0;
   padding: 0;
 }
+h1 {
+  font-weight: 600;
+  font-size: 80px;
+}
+
+h2 {
+  font-weight: 600;
+  font-size: 60px;
+}
+.section-about p {
+  max-width: 800px;      /* ancho máximo para que no se extienda demasiado */
+  margin-left: auto;
+  margin-right: auto;    /* centra solo el bloque, pero texto queda alineado a la izquierda */
+  color: #000;           /* asegura color negro */
+  font-size: 1.1rem;     /* tamaño de letra un poquito mayor */
+  line-height: 1.7;
+}
 
 body {
   background: var(--bg);
@@ -29,7 +46,6 @@ body {
   flex-direction: column;
   min-height: 100vh;
 }
-
 
 /* =================== CONTENEDOR =================== */
 
@@ -44,6 +60,8 @@ body {
   padding: 10px 0; /* Aplica espaciado interno (entre el borde del header y su contenido) */
 }
 
+/* =================== NAV =================== */
+
 .nav {
   display: flex;
   /* activa flexbox */
@@ -53,6 +71,32 @@ body {
   /* centra verticalmente */
   padding: 60px 60px;
 }
+/* =================== ICONOS NAVBAR =================== */
+.nav-icon i {
+  color: white; /* blanco siempre */
+  font-size: 26px; /* tamaño*/
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.nav-icon i:hover {
+  color: #d1d1d1; /* gris claro al pasar el mouse */
+
+  transform: scale(1.15); /* ligero aumento */
+}
+
+/* Ajuste de badges (números del carrito/usuario) */
+.nav-icon .badge {
+  font-size: 12px;
+  padding: 3px 6px;
+}
+
+/* Separación uniforme entre iconos en pantallas grandes */
+.navbar.align-self-center.d-flex.gap-4 {
+  gap: 40px; /* espacio entre cada icono */
+  align-items: center;
+}
+
+/* =================== LOGO =================== */
 
 .logo {
   color: white;
@@ -104,6 +148,28 @@ body {
   padding: 40px 0;
 }
 
+/* =================== CARRUSEL =================== */
+
+.carousel-caption {
+  background: rgba(0, 0, 0, 0.45); /* semi-transparente para mejor contraste */
+  padding: 24px;
+  border-radius: 8px;
+}
+
+.carousel-title {
+  font-size: 32px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.carousel-subtitle {
+  font-size: 20px;
+  font-weight: 300;
+  margin-top: 8px;
+}
+
+/* =================== GRID / CARDS =================== */
+
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -137,7 +203,7 @@ body {
   border-radius: var(--radius);
   text-decoration: none;
 }
-/* BOTÓN VOLVER ARRIBA */
+/* =================== BOTÓN VOLVER ARRIBA =================== */
 #btnTop {
   opacity: 0px;
   display: block; /* siempre visible */
@@ -160,17 +226,18 @@ body {
   background-color: #555;
 }
 
-/* FOOTER */
+/* =================== FOOTER =================== */
+
 .site-footer {
   background: #222222;
   color: white;
   text-align: center;
   padding: 15px;
-  margin-top: 30px;
+  margin-top: 50px;
 }
 
 .social-icons {
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 .social-icons a i {
@@ -182,4 +249,71 @@ body {
 
 .social-icons a:hover i {
   color: #00c853; /* Verde al pasar el mouse */
+}
+
+/* Columnas y enlaces */
+.site-footer h5 {
+  color: #ffffff;
+  margin-bottom: 2rem;
+}
+
+.footer-link {
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+  color: #00c853; /* Verde al pasar el mouse */
+}
+
+/* Footer columns */
+.footer-columns {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  flex-grow: 1;
+  align-items: center; /* centra las columnas horizontalmente */
+}
+
+@media (min-width: 768px) {
+  .footer-columns {
+    flex-direction: row;
+    gap: 5rem;
+    justify-content: center;
+  }
+}
+
+/* Ajustes móviles */
+@media (max-width: 767px) {
+  .footer-columns {
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 20px;
+    align-items: center;
+  }
+}
+
+/* Animaciones fade-in */
+.fade-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.fade-right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.fade-in-visible {
+  opacity: 1 !important;
+  transform: translateX(0) !important;
+}
+
+/* Hero Contacto */
+.hero-contact {
+  position: relative;
+  color: white;
 }
