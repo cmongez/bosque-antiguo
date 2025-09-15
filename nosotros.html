@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contacto - Vivero Bosque Antiguo</title>
+    <title>Nosotros - Vivero Bosque Antiguo</title>
     <!-- Bootstrap CSS -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
@@ -17,7 +17,7 @@
     />
   </head>
   <body>
-    <!-- NAVBAR -->
+     <!-- NAVBAR -->
     <!--navbar verde, con textos blancos, que en pantallas pequeñas se transforma en menú colapsable-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-success px-4">
       <div class="container-fluid">
@@ -42,14 +42,14 @@
         <div class="collapse navbar-collapse" id="menu">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-              <a class="nav-link active" href="index.html">Inicio</a>
+              <a class="nav-link" href="index.html">Inicio</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="productos.html">Productos</a>
             </li>
             <!-- Aquí agregamos las nuevas opciones -->
             <li class="nav-item">
-              <a class="nav-link" href="nosotros.html">Nosotros</a>
+              <a class="nav-link active" href="nosotros.html">Nosotros</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="blogs.html">Blogs</a>
@@ -153,8 +153,7 @@
       </div>
     </nav>
 
-    <!-- HERO CONTACTO -->
-
+    <!-- HERO NOSOTROS -->
     <section
       class="hero-contact text-center text-white"
       style="
@@ -165,113 +164,103 @@
       "
     >
       <div class="container">
-        <h2>¿Necesitas ayuda?</h2>
-        <a href="#" id="btnHeroContact" class="btn btn-success btn-lg mt-3"
-          >Contáctanos</a
-        >
+        <h2>Nosotros</h2>
       </div>
     </section>
 
-    <!-- SECCIÓN CONTACTO -->
+    <!-- SECCIÓN NOSOTROS -->
 
-    <section class="container py-5" id="contactSection">
-      <div class="row g-4">
-        <!-- INFORMACIÓN -->
-
-        <div class="col-md-6 fade-left">
-          <h3>INFORMACIÓN:</h3>
+    <section class="container py-5 section-about">
+      <div class="row fade-left">
+        <div class="col text-dark">
           <p>
-            <strong>ATENCIÓN A PÚBLICO:</strong><br />
-            Lunes a viernes 8:00-17:30<br />
-            Sábados y Domingos 8:00-13:00
+            Bosque Antiguo es un vivero dedicado a crear obras de paisajismo,
+            forestación y agricultura ecológica. Nuestra propuesta busca
+            producir y acercar plantas y alimentos artesanales, además de
+            ofrecer sustratos e insumos para jardinería. También realizamos
+            talleres prácticos orientados a enseñar cómo vivir en el campo,
+            aplicando técnicas de agroecología y acercándolas a comunidades
+            campestres e interesados en aprender. Nuestra casa central se
+            encuentra en Alto Patagua, El Tambo, San Vicente de Tagua Tagua,
+            Región de O’Higgins, y actualmente estamos expandiendo operaciones
+            en la Región de Atacama.
           </p>
-
-          <p>
-            <strong>TELÉFONOS:</strong><br />
-            +56 9 7304 5968
-          </p>
-
-          <p>
-            <strong>E-MAIL:</strong><br />
-            Holabosqueantiguo@gmail.com<br />
-            Cotizaciones: cotizaciones@vivero.cl<br />
-            Preguntas técnicas: viveros@vivero.cl
-          </p>
-
-          <p>
-            <strong>DIRECCIÓN:</strong><br />
-            Callejón alto patagua s/n el tambo, 3070000 San Vicente de Tagua
-            Tagua, O'Higgins
-          </p>
-        </div>
-
-        <!-- FORMULARIO -->
-
-        <div class="col-md-6 fade-right">
-          <h4>Envíanos un mensaje</h4>
-          <form id="formContacto">
-            <div class="mb-3">
-              <label for="nombre" class="form-label">Nombre</label>
-              <input
-                type="text"
-                class="form-control"
-                id="nombre"
-                placeholder="Tu nombre"
-              />
-            </div>
-            <div class="mb-3">
-              <label for="email" class="form-label">Correo electrónico</label>
-              <input
-                type="email"
-                class="form-control"
-                id="email"
-                placeholder="Tu email"
-              />
-            </div>
-            <div class="mb-3">
-              <label for="mensaje" class="form-label">Mensaje</label>
-              <textarea
-                class="form-control"
-                id="mensaje"
-                rows="5"
-                placeholder="Escribe tu mensaje"
-              ></textarea>
-            </div>
-            <button type="submit" class="btn btn-success">Enviar</button>
-          </form>
         </div>
       </div>
     </section>
 
-    <!-- MAPA -->
+    <!-- NUESTRA MISIÓN -->
+    <section
+      class="text-white text-center py-5 my-4"
+      style="
+        background-image: url('/img/alto-angulo-de-plantas-en-macetas-negras.jpg');
+        background-size: cover;
+        background-position: center;
+        position: relative;
+      "
+    >
+      <div
+        style="
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.5);
+        "
+      ></div>
 
-    <section class="container my-5">
-      <h2 class="text-center mb-4">Encuéntranos</h2>
-      <div class="ratio ratio-16x9">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3287.85801867935!2d-70.9786812!3d-34.506483599999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x96648f0aeebdd6d1%3A0x8af47e7d07235565!2sVIVERO%20BOSQUE%20ANTIGUO!5e0!3m2!1ses-419!2scl!4v1757301410951!5m2!1ses-419!2scl"
-          width="600"
-          height="450"
-          style="border: 0"
-          allowfullscreen=""
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-        >
-        </iframe>
+      <div class="container position-relative">
+        <h2 class="mb-3">Nuestra Misión</h2>
+        <p class="lead">
+          Nuestra misión es promover la vida en armonía con la naturaleza,
+          ofreciendo plantas nativas, frutales, flora melífera, ornamentales y
+          de interior, junto con insumos y asesoría personalizada. Nos
+          comprometemos a entregar soluciones sustentables que apoyen la
+          reforestación, la biodiversidad y el aprendizaje comunitario a través
+          de talleres de agroecología.
+        </p>
       </div>
     </section>
 
-    <!-- BOTÓN VOLVER ARRIBA -->
-    <button id="btnTop" title="Ir arriba">
-      <i class="fa-solid fa-chevron-up"></i>
-    </button>
+    <!-- NUESTRA VISIÓN -->
+    <section
+      class="text-white text-center py-5 my-4"
+      style="
+        background-image: url('/img/alto-angulo-de-plantas-en-macetas-negras.jpg');
+        background-size: cover;
+        background-position: center;
+        position: relative;
+      "
+    >
+      <div
+        style="
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.5);
+        "
+      ></div>
+
+      <div class="container position-relative">
+        <h2 class="mb-3">Nuestra Visión</h2>
+        <p class="lead">
+          Nuestra visión es ser el vivero referente en Chile en conservación,
+          educación ambiental y paisajismo ecológico, reconocido por la calidad
+          de nuestras plantas, el impacto positivo en la restauración de
+          ecosistemas y la cercanía con comunidades rurales y urbanas que buscan
+          reconectar con la tierra.
+        </p>
+      </div>
+    </section>
 
     <!-- FOOTER -->
     <footer class="site-footer">
       <div
         class="container d-flex flex-column flex-md-row align-items-start justify-content-between"
       >
-        <!-- Logo a la izquierda -->
         <div class="footer-logo mb-4 mb-md-0">
           <a href="/index.html">
             <img
@@ -283,11 +272,9 @@
           </a>
         </div>
 
-        <!-- Columnas centradas -->
         <div
           class="footer-columns d-flex gap-5 justify-content-center flex-grow-1"
         >
-          <!-- Columna Información -->
           <div>
             <h5>Información</h5>
             <ul class="list-unstyled">
@@ -301,7 +288,6 @@
             </ul>
           </div>
 
-          <!-- Columna Legal -->
           <div>
             <h5>Legal</h5>
             <ul class="list-unstyled">
@@ -315,12 +301,10 @@
         </div>
       </div>
 
-      <!-- Derechos reservados -->
       <p class="mb-2 text-center mt-4">
         &copy; 2025 Tu Tienda. Todos los derechos reservados.
       </p>
 
-      <!-- Redes sociales -->
       <div class="social-icons d-flex justify-content-center gap-3">
         <a href="https://facebook.com" target="_blank"
           ><i class="fab fa-facebook"></i
@@ -339,51 +323,18 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- SCROLL BOTON VOLVER ARRIBA-->
-    <script>
-      const btnTop = document.getElementById("btnTop");
-
-      // Mostrar u ocultar botón según scroll
-      window.addEventListener("scroll", () => {
-        if (window.scrollY > 100) {
-          btnTop.style.display = "block";
-        } else {
-          btnTop.style.display = "none";
-        }
-      });
-
-      // Subir al top con efecto suave
-      btnTop.addEventListener("click", () => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      });
-    </script>
-
-    <!-- SCRIPT SCROLL BOTÓN HERO -->
-    <script>
-      const btnHero = document.getElementById("btnHeroContact");
-      const contactSection = document.getElementById("contactSection");
-
-      btnHero.addEventListener("click", function (e) {
-        e.preventDefault();
-        contactSection.scrollIntoView({ behavior: "smooth" });
-      });
-
-      // Animación al hacer scroll
-      const fadeElements = document.querySelectorAll(".fade-left, .fade-right");
-
-      function checkFade() {
-        const triggerBottom = window.innerHeight * 0.85;
-        fadeElements.forEach((el) => {
-          const top = el.getBoundingClientRect().top;
-          if (top < triggerBottom) {
-            el.classList.add("fade-in-visible");
-          }
-        });
+    <!-- Aquí, justo antes del cierre del body -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("fade-in-visible");
       }
-
-      window.addEventListener("scroll", checkFade);
-      window.addEventListener("load", checkFade);
-    </script>
+    });
+  });
+  document.querySelectorAll('.fade-left').forEach(el => observer.observe(el));
+});
+</script>
   </body>
 </html>
