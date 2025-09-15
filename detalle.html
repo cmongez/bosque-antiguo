@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detalle de producto</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <style>
+        body {
+            background: #f7f7f7;
+        }
+
+        .gallery-main {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            background: #fff;
+            border: 1px solid #e5e5e5;
+            border-radius: .5rem;
+            object-fit: cover;
+        }
+
+        .thumb {
+            width: 70px;
+            height: 70px;
+            object-fit: cover;
+            border: 1px solid #ddd;
+            border-radius: .25rem;
+            cursor: pointer;
+            background: #fff;
+        }
+
+        .thumb.active {
+            outline: 3px solid #0d6efd;
+        }
+
+        .price {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #198754;
+        }
+
+        .qty-input {
+            max-width: 110px;
+        }
+
+        .related img {
+            height: 160px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <!--una navbar verde, con textos blancos, que en pantallas pequeñas se transforma en menú colapsable-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success px-4">
+        <div class="container-fluid">
+            <a class="navbar-brand logo" href="/index.html">
+                <img src="/img/logo ba.png" alt="Logo" />
+            </a>
+
+            <!--Es el icono de menú hamburguesa (3 rayitas)-->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
+                aria-controls="menu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="menu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/index.html">Inicio</a>
+                        <!--active indica el enlace actual-->
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Productos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/registro.html">Registrarse</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link  active" href="/login.html">Iniciar Sesión</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contacto.html">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- ICONOS DE BUSQUEDA,CARRITO,USUARIO -->
+
+            <div class="navbar align-self-center d-flex">
+                <div class="d-lg-none flex-sm-fill mt-3 mb-4 col-7 col-sm-auto pr-3">
+                    <!--el input de búsqueda solo se muestra en pantallas pequeñas (se oculta en pantallas grandes)-->
+                    <div class="input-group">
+                        <input type="text" class="form-control me-2" id="inputMobileSearch" placeholder="Buscar..." />
+                        <div class="input-group-text">
+                            <i class="fa fa-fw fa-search"></i>
+                        </div>
+                    </div>
+                </div>
+                <a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal"
+                    data-bs-target="#templatemo_search">
+                    <i class="fa fa-fw fa-search text-dark mr-2"></i>
+                </a>
+                <a class="mx-4 nav-icon position-relative text-decoration-none" href="/carrito.html">
+                    <i class="fa fa-fw fa-cart-arrow-down text-white mr-1"></i>
+                    <span id="cartCount"
+                        class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-light text-dark">0</span>
+                </a>
+                <a class="nav-icon position-relative text-decoration-none" href="registro.html">
+                    <i class="fa fa-fw fa-user text-white mr-3"></i>
+                    <span
+                        class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">+99</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="container py-4">
+
+        <!-- Breadcrumb -->
+        <nav aria-label="breadcrumb" class="mb-3">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/index.html">Inicio</a></li>
+                <li class="breadcrumb-item"><a href="/productos.html">Productos</a></li>
+                <li class="breadcrumb-item"><span id="crumbCategory">Categoría</span></li>
+                <li class="breadcrumb-item active" aria-current="page" id="crumbTitle">Producto</li>
+            </ol>
+        </nav>
+
+        <div class="row g-4">
+            <!-- Galería -->
+            <div class="col-lg-7">
+                <img id="mainImg" class="gallery-main" src="" alt="Producto" />
+                <div id="thumbs" class="d-flex gap-2 mt-3 flex-wrap"></div>
+            </div>
+
+            <!-- Info producto -->
+            <div class="col-lg-5">
+                <div class="d-flex justify-content-between align-items-start">
+                    <h1 class="h3" id="productName">Nombre Producto</h1>
+                    <div class="price" id="productPrice">$0</div>
+                </div>
+
+                <p class="text-muted" id="productDesc"></p>
+
+                <div class="my-4">
+                    <label class="form-label d-block">Cantidad</label>
+                    <div class="input-group qty-input">
+                        <button class="btn btn-outline-secondary" id="btnMinus" type="button">-</button>
+                        <input id="qty" type="number" class="form-control text-center" value="1" min="1" step="1" />
+                        <button class="btn btn-outline-secondary" id="btnPlus" type="button">+</button>
+                    </div>
+                </div>
+
+                <button id="btnAdd" class="btn btn-primary btn-lg w-100 mt-3">
+                    Añadir al carrito
+                </button>
+
+                <hr class="my-4" />
+
+                <div class="small text-muted">
+                    <p class="mb-1"><strong>SKU:</strong> <span id="sku">---</span></p>
+                    <p class="mb-1"><strong>Categoría:</strong> <span id="category">---</span></p>
+                    <p class="mb-0"><strong>Stock:</strong> <span id="stock">---</span></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Relacionados -->
+        <hr class="my-5" />
+        <h4 class="mb-3">Productos relacionados</h4>
+        <div id="related" class="row g-3 related"></div>
+    </div>
+
+    <footer class="bg-dark text-white text-center py-4 mt-5">
+        <p class="mb-0">&copy; 2025 Vivero Bosque Antiguo</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // === Catálogo base (igual que en productos.html) ===
+        const products = [
+            // Plantas de interior
+            {
+                codigo: "PI001",
+                nombre: "Ficus",
+                descripcion: "Planta de interior de hojas brillantes, fácil de cuidar.",
+                precio: 10000,
+                stock: 25,
+                stockCritico: 5,
+                categoria: "Plantas de interior",
+                img: "/img/jardineria1.jpg"
+            },
+            {
+                codigo: "PI002",
+                nombre: "Sansevieria",
+                descripcion: "Conocida como lengua de suegra, muy resistente.",
+                precio: 15000,
+                stock: 40,
+                stockCritico: 10,
+                categoria: "Plantas de interior",
+                img: "/img/jardineria.jpg"
+            },
+            {
+                codigo: "PI003",
+                nombre: "Afelandra",
+                descripcion: "Planta tropical con hojas llamativas y flores amarillas.",
+                precio: 12000,
+                stock: 15,
+                stockCritico: 3,
+                categoria: "Plantas de interior",
+                img: "/img/close-up-manos-sosteniendo-plantas-de-interior.jpg"
+            },
+
+            // Arbustos ornamentales
+            {
+                codigo: "AO001",
+                nombre: "Azalea",
+                descripcion: "Arbusto ornamental con flores rosadas y blancas.",
+                precio: 9000,
+                stock: 30,
+                stockCritico: 6,
+                categoria: "Arbustos ornamentales",
+                img: "/img/jardineria1.jpg"
+            },
+            {
+                codigo: "AO002",
+                nombre: "Rosas",
+                descripcion: "Clásico arbusto ornamental de flores variadas.",
+                precio: 7000,
+                stock: 50,
+                stockCritico: 10,
+                categoria: "Arbustos ornamentales",
+                img: "/img/jardineria.jpg"
+            },
+
+            // Insumos de jardinería
+            {
+                codigo: "IN001",
+                nombre: "Compost",
+                descripcion: "Mezcla orgánica para nutrir la tierra.",
+                precio: 5000,
+                stock: 100,
+                stockCritico: 20,
+                categoria: "Insumos de jardinería",
+                img: "/img/jardineria1.jpg"
+            },
+            {
+                codigo: "IN002",
+                nombre: "Guano Rojo",
+                descripcion: "Fertilizante natural rico en nutrientes.",
+                precio: 6000,
+                stock: 10,
+                stockCritico: 15,
+                categoria: "Insumos de jardinería",
+                img: "/img/jardineria.jpg"
+            },
+
+            // Frutales
+            {
+                codigo: "FR001",
+                nombre: "Mandarino",
+                descripcion: "Árbol frutal de mandarinas dulces y jugosas.",
+                precio: 12000,
+                stock: 20,
+                stockCritico: 4,
+                categoria: "Frutales",
+                img: "/img/close-up-manos-sosteniendo-plantas-de-interior.jpg"
+            },
+            {
+                codigo: "FR002",
+                nombre: "Palto",
+                descripcion: "Árbol frutal que produce paltas (aguacates).",
+                precio: 18000,
+                stock: 10,
+                stockCritico: 2,
+                categoria: "Frutales",
+                img: "/img/jardineria1.jpg"
+            },
+
+            // Servicios
+            {
+                codigo: "SV001",
+                nombre: "Taller de Jardinería",
+                descripcion: "Curso práctico para aprender técnicas básicas de jardinería.",
+                precio: 10000,
+                stock: 50, // cupos disponibles
+                stockCritico: 5,
+                categoria: "Servicios",
+                img: "/img/jardineria1.jpg"
+            },
+            {
+                codigo: "SV002",
+                nombre: "Taller de Compostaje",
+                descripcion: "Aprende a producir compost casero de forma sencilla.",
+                precio: 12000,
+                stock: 100,
+                stockCritico: 20,
+                categoria: "Servicios",
+                img: "/img/jardineria.jpg"
+            }
+        ];
+
+        // === Funciones carrito ===
+        function getCart() {
+            return JSON.parse(localStorage.getItem("carrito")) || [];
+        }
+        function saveCart(cart) {
+            localStorage.setItem("carrito", JSON.stringify(cart));
+            document.getElementById("cartCount").textContent = cart.reduce((a, b) => a + b.cantidad, 0);
+        }
+        function addToCart(codigo, cantidad = 1) {
+            let cart = getCart();
+            const producto = products.find(p => p.codigo === codigo);
+            if (!producto) return;
+            let existing = cart.find(item => item.codigo === codigo);
+            if (existing) {
+                existing.cantidad += cantidad;
+            } else {
+                cart.push({ ...producto, cantidad });
+            }
+            saveCart(cart);
+        }
+
+        // === Obtener código de la URL ===
+        const params = new URLSearchParams(window.location.search);
+        const codigo = params.get("codigo");
+        const product = products.find(p => p.codigo === codigo);
+
+        if (!product) {
+            document.querySelector(".container").innerHTML = "<p class='text-danger'>Producto no encontrado.</p>";
+        } else {
+            const fmt = n => n.toLocaleString("es-CL", { style: "currency", currency: "CLP", maximumFractionDigits: 0 });
+
+            // Render info
+            document.getElementById("productName").textContent = product.nombre;
+            document.getElementById("productPrice").textContent = fmt(product.precio);
+            document.getElementById("productDesc").textContent = product.descripcion;
+            document.getElementById("sku").textContent = product.codigo;
+            document.getElementById("category").textContent = product.categoria;
+            document.getElementById("crumbTitle").textContent = product.nombre;
+            document.getElementById("crumbCategory").textContent = product.categoria;
+
+            // Stock con aviso crítico
+            document.getElementById("stock").textContent =
+                product.stock <= product.stockCritico
+                    ? `${product.stock} (¡Últimas unidades!)`
+                    : product.stock;
+
+            // Galería con 3 imágenes (aunque sea la misma repetida)
+            const mainImg = document.getElementById("mainImg");
+            mainImg.src = product.img;
+            const thumbs = document.getElementById("thumbs");
+            thumbs.innerHTML = [product.img, product.img, product.img].map((src, i) => `
+                <img class="thumb ${i === 0 ? 'active' : ''}" src="${src}" data-src="${src}" alt="${product.nombre}" />
+            `).join("");
+
+            // Interacción thumbnails
+            const thumbEls = document.querySelectorAll(".thumb");
+            thumbEls.forEach(t => {
+                t.addEventListener("click", () => {
+                    thumbEls.forEach(x => x.classList.remove("active"));
+                    t.classList.add("active");
+                    mainImg.src = t.dataset.src;
+                });
+            });
+
+            // Cantidad
+            const qty = document.getElementById("qty");
+            document.getElementById("btnMinus").onclick = () => qty.value = Math.max(1, parseInt(qty.value || 1) - 1);
+            document.getElementById("btnPlus").onclick = () => qty.value = Math.max(1, parseInt(qty.value || 1) + 1);
+
+            // Botón añadir al carrito
+            document.getElementById("btnAdd").onclick = () => {
+                addToCart(product.codigo, Number(qty.value));
+                alert(`${product.nombre} añadido al carrito`);
+            };
+
+            // Actualizar contador carrito
+            saveCart(getCart());
+
+            // Relacionados
+            const related = document.getElementById("related");
+            const relacionados = products.filter(p => p.categoria === product.categoria && p.codigo !== product.codigo).slice(0, 4);
+            related.innerHTML = relacionados.map(r => `
+                <div class="col-6 col-md-3">
+                    <a class="text-decoration-none text-reset" href="detalle.html?codigo=${r.codigo}">
+                        <div class="card h-100">
+                            <img src="${r.img}" class="card-img-top" alt="${r.nombre}">
+                            <div class="card-body">
+                                <div class="fw-semibold">${r.nombre}</div>
+                                <div class="text-success">${fmt(r.precio)}</div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            `).join("");
+        }
+    </script>
+</body>
+
+</html>
