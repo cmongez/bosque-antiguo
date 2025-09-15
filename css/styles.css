@@ -1,158 +1,182 @@
-:root { /* define variables globales */
-  --bg: #F7F7F7; /* guardan colores que usaremos en todo el proyecto */
-  --primary:#2E8B57;/*guardan colores que usaremos en todo el proyecto */
-  --amarillo-mostaza:#FFD700;
-  --titulos-subtitulos:#8B4513;
-  --text: #333; /* guardan colores que usaremos en todo el proyecto */
-  --radius: 10px; 
-}
+/* =================== VARIABLES GLOBALES =================== */
 
+:root {
+  /* define variables globales */
+  --bg: #f7f7f7; /* guardan colores que usaremos en todo el proyecto */
+  --primary: #2e8b57; /*guardan colores que usaremos en todo el proyecto */
+  --amarillo-mostaza: #ffd700;
+  --titulos-subtitulos: #8b4513;
+  --text: #333; /* guardan colores que usaremos en todo el proyecto */
+  --radius: 10px;
+}
+/* =================== TIPOGRAFÍA =================== */
 @font-face {
-  font-family:'Montserrat';
+  font-family: "Montserrat";
   src: url(/fonts/Montserrat-VariableFont_wght.ttf);
 }
 
-*{
-  font-family: 'Montserrat';
+* {
+  font-family: "Montserrat";
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  
-  margin: 0;
-  background: var(--bg); /* Define el color del texto principal en todo el documento */
-  color: var(--text);/* Usa la variable --text definida en :root */
+  background: var(--bg);
+  color: var(--text);
 }
 
 
-.container { /* centra y limita el ancho del contenido de la página */
-  width: min(90%, 1100px);/* ancho del contenedor */
+/* =================== CONTENEDOR =================== */
+
+.container {
+  /* centra y limita el ancho del contenido de la página */
+  width: min(90%, 1100px); /* ancho del contenedor */
   margin: auto;
 }
 
 .site-header {
   background: var(--primary);
-  padding: 10px 0;/* Aplica espaciado interno (entre el borde del header y su contenido) */
+  padding: 10px 0; /* Aplica espaciado interno (entre el borde del header y su contenido) */
 }
 
 .nav {
-    display: flex;
-    /* activa flexbox */
-    justify-content: space-between;
-    /* logo izquierda, menú derecha */
-    align-items: center;
-    /* centra verticalmente */
-    padding: 20px 20px;
+  display: flex;
+  /* activa flexbox */
+  justify-content: space-between;
+  /* logo izquierda, menú derecha */
+  align-items: center;
+  /* centra verticalmente */
+  padding: 60px 60px;
 }
 
 .logo {
-    color: white;
-    font-weight: bold;
+  color: white;
+  font-weight: bold;
 }
 
 .logo img {
-    height: 80px;
-    /* altura fija del logo */
-    width: auto;
-    /* mantiene proporción */
-    display: block;
-    /* evita que el logo se "baje" */
+  height: 200px;
+  /* altura fija del logo */
+  width: auto;
+  /* mantiene proporción */
+  display: block;
+  /* evita que el logo se "baje" */
 }
 
 .menu {
-    display: flex;
-    gap: 30px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
+  display: flex;
+  gap: 30px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .menu a {
-    position: relative;
-    color: white;
-    text-decoration: none;
-    padding: 8px 12px;
-    border-radius: 8px;
-    transition: background 0.3s;
+  position: relative;
+  color: white;
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: background 0.3s;
 }
 
-.menu a :hover {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 0;
-    height: 2px;
-    background: white;
-    transition: width 0.3s;
+.menu a:hover {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: white;
+  transition: width 0.3s;
 }
 
 .menu a:hover::after {
-    width: 200%;
+  width: 200%;
 }
 
-
 .hero {
-    text-align: center;
-    padding: 40px 0;
+  text-align: center;
+  padding: 40px 0;
 }
 
 .grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    /* 3 columnas fijas */
-    gap: 20px;
-    /* espacio entre tarjetas */
-    margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /* 3 columnas fijas */
+  gap: 20px;
+  /* espacio entre tarjetas */
+  margin-top: 20px;
 }
 
 .card {
   background: white;
-  border-radius: 10px;  /*cambiar a border-radius: var(--radius); */
+  border-radius: 10px; /*cambiar a border-radius: var(--radius); */
   padding: 15px;
   text-align: center;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .card img {
-    width: 100%;
-    max-width: 200%;
-    height: auto;
-    margin: 0 auto;
-    display: block;
+  width: 100%;
+  max-width: 200%;
+  height: auto;
+  margin: 0 auto;
+  display: block;
 }
 
 .btn {
-    display: inline-block;
-    background: var(--primary);
-    color: white;
-    padding: 10px 15px;
-    border-radius: var(--radius);
-    text-decoration: none;
+  display: inline-block;
+  background: var(--primary);
+  color: white;
+  padding: 10px 15px;
+  border-radius: var(--radius);
+  text-decoration: none;
+}
+/* BOTÓN VOLVER ARRIBA */
+#btnTop {
+  opacity: 0px;
+  display: block; /* siempre visible */
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 99;
+  border: none;
+  outline: none;
+  background-color: var(--primary);
+  color: var(--bg);
+  cursor: pointer;
+  padding: 12px 16px;
+  border-radius: 50%;
+  font-size: 20px;
+  transition: background-color 0.3s;
 }
 
+#btnTop:hover {
+  background-color: #555;
+}
+
+/* FOOTER */
 .site-footer {
-    background: #222222;
-    color: white;
-    text-align: center;
-    padding: 15px;
-    margin-top: 30px;
+  background: #222222;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  margin-top: 30px;
 }
 
 .social-icons {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
 .social-icons a i {
-    color: #fff;
-    margin: 0 10px;
-    font-size: 24px;
-    transition: color 0.3s ease;
+  color: #fff;
+  margin: 0 10px;
+  font-size: 24px;
+  transition: color 0.3s ease;
 }
 
-.social-icons a:hover {
-    color: #00c853;
-    /* cambia a verde (puedes usar otro color) */
-<<<<<<< HEAD
+.social-icons a:hover i {
+  color: #00c853; /* Verde al pasar el mouse */
 }
-=======
-}
->>>>>>> 49027e55653ee04cf435bb9885519d0e74029de8
