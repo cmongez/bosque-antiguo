@@ -45,6 +45,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  justify-content: space-between;
 }
 
 /* =================== CONTENEDOR =================== */
@@ -90,6 +91,10 @@ body {
   padding: 3px 6px;
 }
 
+.barra-busqueda {
+  max-width: 100px;
+}
+
 /* Separación uniforme entre iconos en pantallas grandes */
 .navbar.align-self-center.d-flex.gap-4 {
   gap: 40px; /* espacio entre cada icono */
@@ -104,12 +109,22 @@ body {
 }
 
 .logo img {
-  height: 200px;
+  height: 180px;
   /* altura fija del logo */
   width: auto;
   /* mantiene proporción */
   display: block;
   /* evita que el logo se "baje" */
+}
+
+/* Logo más pequeño en móviles */
+@media (max-width: 768px) {
+  nav .logo img {
+    height: 100px; /* o incluso 100px si quieres más chico */
+  }
+  .nav-icon i {
+  font-size: 20px; /* tamaño*/
+}
 }
 
 .menu {
@@ -316,4 +331,38 @@ body {
 .hero-contact {
   position: relative;
   color: white;
+}
+
+/* ADMIN */
+ body {
+     min-height: 100vh;
+     display: flex;
+     flex-direction: column;
+ }
+ .wrapper {
+     display: flex;
+     flex: 1;
+ }
+ /* Sidebar (solo en lg en adelante) */
+ .sidebar {
+     min-width: 220px;
+     max-width: 220px;
+     background-color: #198754;
+     color: white;
+ }
+ .sidebar a {
+     color: white;
+     text-decoration: none;
+ }
+ .sidebar a:hover {
+     background: rgba(255, 255, 255, 0.1);
+     border-radius: 5px;
+ }
+ .content {
+     flex: 1;
+     padding: 20px;
+     background-color: #f8f9fa;
+ }
+ nav.nav-admin ul{
+  padding: 20px 20px;
 }
