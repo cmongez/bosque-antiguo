@@ -1,340 +1,252 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nosotros - Vivero Bosque Antiguo</title>
-    <!-- Bootstrap CSS -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="/css/styles.css" />
-    <!-- Font Awesome -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    />
-  </head>
-  <body>
-     <!-- NAVBAR -->
-    <!--navbar verde, con textos blancos, que en pantallas pequeñas se transforma en menú colapsable-->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-success px-4">
-      <div class="container-fluid">
-        <a class="navbar-brand logo" href="index.html">
-          <img src="/img/logo ba.png" alt="Logo" />
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nosotros - Vivero Bosque Antiguo</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/styles.css" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+
+<body>
+  <!--navbar verde, con textos blancos, que en pantallas pequeñas se transforma en menú colapsable-->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-success px-2">
+    <div class="container-fluid px-0 ">
+      <a class="navbar-brand logo" href="index.html">
+        <img src="/img/logo ba.png" alt="Logo" />
+      </a>
+
+      <!-- ICONOS DE BUSQUEDA,CARRITO,USUARIO -->
+
+      <div class="navbar align-self-center d-flex order-lg-3 me-md-4">
+        <div class="d-lg-none flex-sm-fill mt-3 mb-4 col-7 col-sm-auto pr-3">
+          <!--el input de búsqueda solo se muestra en pantallas pequeñas (se oculta en pantallas grandes)-->
+          <div class="input-group">
+            <input type="text" class="form-control me-2 barra-busqueda" id="inputMobileSearch"
+              placeholder="Buscar..." />
+            <div class="input-group-text">
+              <i class="fa fa-fw fa-search"></i>
+            </div>
+          </div>
+          <!-- ÍCONO BÚSQUEDA en escritorio -->
+          <a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal" data-bs-target="#buscadorModal">
+            <i class="fa fa-fw fa-search text-white" style="font-size: 24px"></i>
+          </a>
+
+
+        </div>
+        <!-- ÍCONO BÚSQUEDA en escritorio -->
+        <a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal" data-bs-target="#buscadorModal">
+          <i class="fa fa-fw fa-search text-dark" style="font-size: 24px"></i>
+        </a>
+        <!-- ÍCONO CARRITO -->
+        <a class="mx-4 mx-md-2 mx-lg-4 nav-icon position-relative text-decoration-none" href="/carrito.html">
+          <i class="fa fa-fw fa-cart-arrow-down text-white mr-1"></i>
+          <span id="cartCount"
+            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-light text-dark">0</span>
+        </a>
+        <!-- ÍCONO USUARIO -->
+        <a class="nav-icon position-relative text-decoration-none" href="admin-home.html">
+          <i class="fa fa-fw fa-user text-white mr-3"></i>
+          <span
+            class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">+99</span>
         </a>
 
-        <!--Es el icono de menú hamburguesa (3 rayitas)-->
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#menu"
-          aria-controls="menu"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <!--active indica el enlace actual-->
-
-        <div class="collapse navbar-collapse" id="menu">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="index.html">Inicio</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="productos.html">Productos</a>
-            </li>
-            <!-- Aquí agregamos las nuevas opciones -->
-            <li class="nav-item">
-              <a class="nav-link active" href="nosotros.html">Nosotros</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="blogs.html">Blogs</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="registro.html">Registro</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/login.html">Iniciar Sesión</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="contacto.html">Contacto</a>
-            </li>
-          </ul>
-        </div>
-
-        <!-- ICONOS DE BUSQUEDA,CARRITO,USUARIO -->
-
-        <div class="navbar align-self-center d-flex">
-          <div class="d-lg-none flex-sm-fill mt-3 mb-4 col-7 col-sm-auto pr-3">
-            <!--el input de búsqueda solo se muestra en pantallas pequeñas (se oculta en pantallas grandes)-->
-            <div class="input-group">
-              <input
-                type="text"
-                class="form-control me-2"
-                id="inputMobileSearch"
-                placeholder="Buscar..."
-              />
-              <div class="input-group-text">
-                <i class="fa fa-fw fa-search"></i>
-              </div>
-            </div>
-            <!-- ÍCONO BÚSQUEDA en escritorio -->
-            <a
-              class="nav-icon d-none d-lg-inline"
-              href="#"
-              data-bs-toggle="modal"
-              data-bs-target="#buscadorModal"
-            >
-              <i
-                class="fa fa-fw fa-search text-white"
-                style="font-size: 24px"
-              ></i>
-            </a>
-
-            <!-- ÍCONO CARRITO -->
-
-            <a
-              class="nav-icon position-relative text-decoration-none"
-              href="carrito.html"
-            >
-              <i class="fa fa-fw fa-cart-arrow-down"></i>
-              <span
-                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-light text-dark"
-                >2</span
-              >
-            </a>
-            <!-- ÍCONO USUARIO -->
-
-            <a
-              class="nav-icon position-relative text-decoration-none"
-              href="registro.html"
-            >
-              <i class="fa fa-fw fa-user text-white mr-3"></i>
-              <span
-                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-light text-dark"
-                >+99</span
-              >
-            </a>
-          </div>
-          <a
-            class="nav-icon d-none d-lg-inline"
-            href="#"
-            data-bs-toggle="modal"
-            data-bs-target="#templatemo_search"
-          >
-            <i class="fa fa-fw fa-search text-dark mr-2"></i>
-          </a>
-          <a
-            class="mx-4 nav-icon position-relative text-decoration-none"
-            href="/carrito.html"
-          >
-            <i class="fa fa-fw fa-cart-arrow-down text-white mr-1"></i>
-            <span
-              id="cartCount"
-              class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-light text-dark"
-              >0</span
-            >
-          </a>
-          <a
-            class="nav-icon position-relative text-decoration-none"
-            href="admin-home.html"
-          >
-            <i class="fa fa-fw fa-user text-white mr-3"></i>
-            <span
-              class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"
-              >+99</span
-            >
-          </a>
-        </div>
       </div>
-    </nav>
+      <!--active indica el enlace actual-->
+      <!--Es el icono de menú hamburguesa (3 rayitas)-->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse d-lg-flex justify-content-lg-center  navbar-collapse" id="menu">
+        <ul class="navbar-nav d-flex  text-center gap-2">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="productos.html">Productos</a>
+          </li>
+          <!-- Aquí agregamos las nuevas opciones -->
+          <li class="nav-item">
+            <a class="nav-link  active" href="nosotros.html">Nosotros</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="blogs.html">Blogs</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="registro.html">Registro</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="login.html">Iniciar Sesión</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contacto.html">Contacto</a>
+          </li>
+        </ul>
+      </div>
 
-    <!-- HERO NOSOTROS -->
-    <section
-      class="hero-contact text-center text-white"
-      style="
+    </div>
+  </nav>
+
+  <!-- HERO NOSOTROS -->
+  <section class="hero-contact text-center text-white" style="
         background-image: url('/img/jardineria1.jpg');
         background-size: cover;
         background-position: center;
         padding: 120px 0;
-      "
-    >
-      <div class="container">
-        <h2>Nosotros</h2>
+      ">
+    <div class="container">
+      <h2>Nosotros</h2>
+    </div>
+  </section>
+
+  <!-- SECCIÓN NOSOTROS -->
+
+  <section class="container py-5 section-about">
+    <div class="row fade-left">
+      <div class="col text-dark">
+        <p>
+          Bosque Antiguo es un vivero dedicado a crear obras de paisajismo,
+          forestación y agricultura ecológica. Nuestra propuesta busca
+          producir y acercar plantas y alimentos artesanales, además de
+          ofrecer sustratos e insumos para jardinería. También realizamos
+          talleres prácticos orientados a enseñar cómo vivir en el campo,
+          aplicando técnicas de agroecología y acercándolas a comunidades
+          campestres e interesados en aprender. Nuestra casa central se
+          encuentra en Alto Patagua, El Tambo, San Vicente de Tagua Tagua,
+          Región de O’Higgins, y actualmente estamos expandiendo operaciones
+          en la Región de Atacama.
+        </p>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- SECCIÓN NOSOTROS -->
-
-    <section class="container py-5 section-about">
-      <div class="row fade-left">
-        <div class="col text-dark">
-          <p>
-            Bosque Antiguo es un vivero dedicado a crear obras de paisajismo,
-            forestación y agricultura ecológica. Nuestra propuesta busca
-            producir y acercar plantas y alimentos artesanales, además de
-            ofrecer sustratos e insumos para jardinería. También realizamos
-            talleres prácticos orientados a enseñar cómo vivir en el campo,
-            aplicando técnicas de agroecología y acercándolas a comunidades
-            campestres e interesados en aprender. Nuestra casa central se
-            encuentra en Alto Patagua, El Tambo, San Vicente de Tagua Tagua,
-            Región de O’Higgins, y actualmente estamos expandiendo operaciones
-            en la Región de Atacama.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- NUESTRA MISIÓN -->
-    <section
-      class="text-white text-center py-5 my-4"
-      style="
+  <!-- NUESTRA MISIÓN -->
+  <section class="text-white text-center py-5 my-4" style="
         background-image: url('/img/alto-angulo-de-plantas-en-macetas-negras.jpg');
         background-size: cover;
         background-position: center;
         position: relative;
-      "
-    >
-      <div
-        style="
+      ">
+    <div style="
           position: absolute;
           top: 0;
           left: 0;
           width: 100%;
           height: 100%;
           background-color: rgba(0, 0, 0, 0.5);
-        "
-      ></div>
+        "></div>
 
-      <div class="container position-relative">
-        <h2 class="mb-3">Nuestra Misión</h2>
-        <p class="lead">
-          Nuestra misión es promover la vida en armonía con la naturaleza,
-          ofreciendo plantas nativas, frutales, flora melífera, ornamentales y
-          de interior, junto con insumos y asesoría personalizada. Nos
-          comprometemos a entregar soluciones sustentables que apoyen la
-          reforestación, la biodiversidad y el aprendizaje comunitario a través
-          de talleres de agroecología.
-        </p>
-      </div>
-    </section>
-
-    <!-- NUESTRA VISIÓN -->
-    <section
-      class="text-white text-center py-5 my-4"
-      style="
-        background-image: url('/img/alto-angulo-de-plantas-en-macetas-negras.jpg');
-        background-size: cover;
-        background-position: center;
-        position: relative;
-      "
-    >
-      <div
-        style="
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background-color: rgba(0, 0, 0, 0.5);
-        "
-      ></div>
-
-      <div class="container position-relative">
-        <h2 class="mb-3">Nuestra Visión</h2>
-        <p class="lead">
-          Nuestra visión es ser el vivero referente en Chile en conservación,
-          educación ambiental y paisajismo ecológico, reconocido por la calidad
-          de nuestras plantas, el impacto positivo en la restauración de
-          ecosistemas y la cercanía con comunidades rurales y urbanas que buscan
-          reconectar con la tierra.
-        </p>
-      </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="site-footer">
-      <div
-        class="container d-flex flex-column flex-md-row align-items-start justify-content-between"
-      >
-        <div class="footer-logo mb-4 mb-md-0">
-          <a href="/index.html">
-            <img
-              src="/img/logo ba.png"
-              alt="Logo"
-              class="img-fluid"
-              style="max-width: 150px"
-            />
-          </a>
-        </div>
-
-        <div
-          class="footer-columns d-flex gap-5 justify-content-center flex-grow-1"
-        >
-          <div>
-            <h5>Información</h5>
-            <ul class="list-unstyled">
-              <li>
-                <a href="contacto.html" class="footer-link">Contáctanos</a>
-              </li>
-              <li><a href="#" class="footer-link">Preguntas frecuentes</a></li>
-              <li>
-                <a href="nosotros.html" class="footer-link">Nuestra historia</a>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h5>Legal</h5>
-            <ul class="list-unstyled">
-              <li>
-                <a href="#" class="footer-link">Políticas de reembolso</a>
-              </li>
-              <li><a href="#" class="footer-link">Políticas de envíos</a></li>
-              <li><a href="#" class="footer-link">Términos de servicio</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <p class="mb-2 text-center mt-4">
-        &copy; 2025 Tu Tienda. Todos los derechos reservados.
+    <div class="container position-relative">
+      <h2 class="mb-3">Nuestra Misión</h2>
+      <p class="lead">
+        Nuestra misión es promover la vida en armonía con la naturaleza,
+        ofreciendo plantas nativas, frutales, flora melífera, ornamentales y
+        de interior, junto con insumos y asesoría personalizada. Nos
+        comprometemos a entregar soluciones sustentables que apoyen la
+        reforestación, la biodiversidad y el aprendizaje comunitario a través
+        de talleres de agroecología.
       </p>
+    </div>
+  </section>
 
-      <div class="social-icons d-flex justify-content-center gap-3">
-        <a href="https://facebook.com" target="_blank"
-          ><i class="fab fa-facebook"></i
-        ></a>
-        <a href="https://instagram.com" target="_blank"
-          ><i class="fab fa-instagram"></i
-        ></a>
-        <a href="https://twitter.com" target="_blank"
-          ><i class="fab fa-twitter"></i
-        ></a>
-        <a href="https://wa.me/56912345678" target="_blank"
-          ><i class="fab fa-whatsapp"></i
-        ></a>
+  <!-- NUESTRA VISIÓN -->
+  <section class="text-white text-center py-5 my-4" style="
+        background-image: url('/img/alto-angulo-de-plantas-en-macetas-negras.jpg');
+        background-size: cover;
+        background-position: center;
+        position: relative;
+      ">
+    <div style="
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.5);
+        "></div>
+
+    <div class="container position-relative">
+      <h2 class="mb-3">Nuestra Visión</h2>
+      <p class="lead">
+        Nuestra visión es ser el vivero referente en Chile en conservación,
+        educación ambiental y paisajismo ecológico, reconocido por la calidad
+        de nuestras plantas, el impacto positivo en la restauración de
+        ecosistemas y la cercanía con comunidades rurales y urbanas que buscan
+        reconectar con la tierra.
+      </p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container d-flex flex-column flex-md-row align-items-start justify-content-between">
+      <div class="footer-logo mb-4 mb-md-0">
+        <a href="/index.html">
+          <img src="/img/logo ba.png" alt="Logo" class="img-fluid" style="max-width: 150px" />
+        </a>
       </div>
-    </footer>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Aquí, justo antes del cierre del body -->
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("fade-in-visible");
-      }
+      <div class="footer-columns d-flex gap-5 justify-content-center flex-grow-1">
+        <div>
+          <h5>Información</h5>
+          <ul class="list-unstyled">
+            <li>
+              <a href="contacto.html" class="footer-link">Contáctanos</a>
+            </li>
+            <li><a href="#" class="footer-link">Preguntas frecuentes</a></li>
+            <li>
+              <a href="nosotros.html" class="footer-link">Nuestra historia</a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h5>Legal</h5>
+          <ul class="list-unstyled">
+            <li>
+              <a href="#" class="footer-link">Políticas de reembolso</a>
+            </li>
+            <li><a href="#" class="footer-link">Políticas de envíos</a></li>
+            <li><a href="#" class="footer-link">Términos de servicio</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <p class="mb-2 text-center mt-4">
+      &copy; 2025 Tu Tienda. Todos los derechos reservados.
+    </p>
+
+    <div class="social-icons d-flex justify-content-center gap-3">
+      <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+      <a href="https://wa.me/56912345678" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    </div>
+  </footer>
+  <!-- Contador productos carrito -->
+  <script src="/js/carrito.js"></script>
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Aquí, justo antes del cierre del body -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("fade-in-visible");
+          }
+        });
+      });
+      document.querySelectorAll('.fade-left').forEach(el => observer.observe(el));
     });
-  });
-  document.querySelectorAll('.fade-left').forEach(el => observer.observe(el));
-});
-</script>
-  </body>
+  </script>
+</body>
+
 </html>
