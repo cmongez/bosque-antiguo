@@ -194,7 +194,7 @@
 
   <!-- FOOTER -->
   <footer class="site-footer">
-    <div class="container d-flex flex-column flex-md-row align-items-start justify-content-between">
+    <div class="container d-flex flex-column flex-md-row align-items-center justify-content-between">
       <!-- Logo a la izquierda -->
       <div class="footer-logo mb-4 mb-md-0">
         <a href="./index.html">
@@ -245,6 +245,27 @@
       <a href="https://wa.me/56912345678" target="_blank"><i class="fab fa-whatsapp"></i></a>
     </div>
   </footer>
+  <!-- Modal de búsqueda -->
+  <div class="modal fade" id="buscadorModal" tabindex="-1" aria-labelledby="buscadorModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header bg-success text-white">
+          <h5 class="modal-title" id="buscadorModalLabel">
+            Buscar productos
+          </h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          <form id="formBuscar">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Escribe tu búsqueda..." id="inputBuscar" />
+              <button class="btn btn-success" type="submit">Buscar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
